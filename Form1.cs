@@ -240,6 +240,7 @@ public partial class Form1 : Form
 
     private void updateControlsForModel(byte servoCount)
     {
+        /*
         for (byte index = 0; (int)index < (int)servoCount; ++index)
         {
             this.servoControls[(int)index].Visible = true;
@@ -260,6 +261,7 @@ public partial class Form1 : Form
             this.pwmCheckBox.Text = "Enable PWM on channel 12";
         this.servoStatusFlowLayoutPanel.Height = this.servoStatusFlowLayoutPanel.PreferredSize.Height;
         this.servoControlFlowLayoutPanel.Height = this.servoControlFlowLayoutPanel.PreferredSize.Height;
+        */
     }
 
     private void disableApplyButton()
@@ -1179,20 +1181,25 @@ public partial class Form1 : Form
 
     protected override void WndProc(ref Message m)
     {
+
+        int msg = m.Msg;
+
+        //detecting usb change
         /*
-        if ((long)m.Msg == (long)Usb.WM_DEVICECHANGE)
-        {
-            try
-            {
-                this.OnDeviceChange();
-            }
-            catch (Exception ex)
-            {
-                Form1.displayException(ex, "There was an error processing a device change event.");
-            }
-        }
+         if ((long)m.Msg == (long)Usb.WM_DEVICECHANGE)
+         {
+             try
+             {
+                 this.OnDeviceChange();
+             }
+             catch (Exception ex)
+             {
+                 Form1.displayException(ex, "There was an error processing a device change event.");
+             }
+         }
+         base.WndProc(ref m);
+         */
         base.WndProc(ref m);
-        */
     }
 
     private void connectToDevice(int index)

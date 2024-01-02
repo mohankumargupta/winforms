@@ -1739,7 +1739,7 @@ partial class Form1
         this.servosAvailableUpDown.Size = new Size(44, 20);
         this.servosAvailableUpDown.TabIndex = 1;
         this.servosAvailableUpDown.TextAlign = HorizontalAlignment.Right;
-        this.toolTip1.SetToolTip((Control)this.servosAvailableUpDown, componentResourceManager.GetString("servosAvailableUpDown.ToolTip"));
+        //this.toolTip1.SetToolTip((Control)this.servosAvailableUpDown, componentResourceManager.GetString("servosAvailableUpDown.ToolTip"));
         this.servosAvailableUpDown.Value = new Decimal(new int[4]
         {
         6,
@@ -1863,7 +1863,7 @@ partial class Form1
         this.Controls.Add((Control)this.tabs);
         this.Controls.Add((Control)this.ApplyButton);
         this.Controls.Add((Control)this.saveFrameButton);
-        this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
+        //this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
         this.Name = nameof(Form1);
         this.Text = "Pololu Maestro Control Center";
         this.Load += new EventHandler(this.Form1_Load);
@@ -1903,8 +1903,8 @@ partial class Form1
         this.periodUpDown.EndInit();
         this.servosAvailableUpDown.EndInit();
         this.serialTimeout.EndInit();
-        this.ResumeLayout(false);
-        this.PerformLayout();
+        //this.ResumeLayout(false);
+        //this.PerformLayout();
 
 
     }
