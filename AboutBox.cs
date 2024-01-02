@@ -109,7 +109,7 @@ namespace Pololu.MaestroControlCenter
 
     private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      //MainWindow.launchDocs();
+      //Form1.launchDocs();
     }
 
     protected override void Dispose(bool disposing)

@@ -7,7 +7,7 @@ namespace Pololu.Usc
 {
     /// <summary>
     /// An interface to be used by anything that can store usc parameter values.
-    /// This includes MainWindow and Usc itself.
+    /// This includes Form1 and Usc itself.
     /// </summary>
     /// <remarks>
     /// When implementing setUscSettings and getUscSettings in your class, look
