@@ -520,7 +520,7 @@ namespace Pololu.Usc
             if (!microMaestro)
             {
                 // Flush out any spurious performance flags that might have occurred.
-                MaestroVariables variables;
+                //MaestroVariables variables;
                 //getVariables(out variables);
             }
         }
