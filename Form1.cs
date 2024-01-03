@@ -14,6 +14,7 @@ using Pololu.UsbWrapper;
 using System.IO;
 using Pololu.Usc.Bytecode;
 using System.Diagnostics;
+using System.IO.Ports;
 
 
 namespace winforms;
@@ -21,6 +22,7 @@ namespace winforms;
 public partial class Form1 : Form
 {
     public bool miniMaestro => this.usc != null && this.usc.servoCount > (byte)6;
+    public SerialPort serialPort;
 
     public Form1()
     {
@@ -57,8 +59,40 @@ public partial class Form1 : Form
         this.updateControlsForModel((byte)6);
     }
 
+    private String? openCOMPort(string comport)
+    {
+        string[] ports = System.IO.Ports.SerialPort.GetPortNames();
+        for (int i = 0; i < ports.Length; i++)
+        {
+            string port = ports[i].ToUpper();
+
+            if (port.StartsWith(comport))
+            {
+                System.Console.WriteLine(port);
+                serialPort = new SerialPort(port, 9600);
+                serialPort.Open();
+                return port;
+            }
+        }
+        return null;
+    }
+
     private void Form1_Shown(object sender, EventArgs e)
     {
+        String COMPort = "COM4";
+        String? port = openCOMPort(COMPort);
+
+        this.deviceList.Items.Clear();
+        this.deviceList.DisplayMember = "text";
+        //this.deviceList.Items.Add((object)DeviceListItem.CreateDummyItem("Not Connected"));
+        if (port != null)
+        {
+            this.deviceList.Items.Add(port);
+        }
+
+
+
+        //this.updateDeviceListContents();
 
         /*
         if (!Usb.supportsNotify)
@@ -84,7 +118,7 @@ public partial class Form1 : Form
             Form1.displayException(ex, "There was an error while starting up.");
         }
         */
-        this.updateFormFromDeviceAndRegistry();
+        //this.updateFormFromDeviceAndRegistry();
         new Thread(new ThreadStart(this.backgroundUpdateStatus)).Start();
     }
 
